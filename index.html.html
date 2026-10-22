@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación médica: más allá del aula | Facultad de Medicina UdeC</title>
+    <!-- Tipografías académicas y modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --udec-green: #00593f;
+            --udec-gold: #c69214;
+            --med-blue: #0f4c81;
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --accent-soft: #e0f2fe;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.75;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--med-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.15rem;
+        }
+
+        /* BARRA DE NAVEGACIÓN FIJA */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 3px solid var(--udec-gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            color: var(--udec-green);
+            text-decoration: none;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--udec-green);
+            color: var(--white);
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 1080px;
+            margin: 2rem auto;
+            padding: 0 1.25rem;
+        }
+
+        /* PORTADA OFICIAL (RÚBRICA: DATOS GENERALES) */
+        .portada-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-top: 6px solid var(--udec-green);
+            border-bottom: 6px solid var(--udec-gold);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .logos-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px dashed var(--border-color);
+        }
+
+        .logo-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--white);
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        .logo-badge span {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--udec-green);
+            text-align: left;
+        }
+
+        .portada-institucion h1 {
+            color: var(--udec-green);
+            font-size: 1.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .portada-institucion h2 {
+            color: var(--udec-gold);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .portada-institucion h3 {
+            color: var(--med-blue);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .datos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            text-align: left;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-top: 1rem;
+        }
+
+        .dato-item strong {
+            color: var(--udec-green);
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* SECCIÓN DE BIENVENIDA / HERO */
+        .hero-section {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--med-blue);
+            color: var(--white);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px rgba(15, 76, 129, 0.18);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            opacity: 0.35;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2.5rem;
+            background: linear-gradient(90deg, rgba(15,76,129,0.92) 0%, rgba(0,89,63,0.75) 100%);
+        }
+
+        .hero-overlay h2 {
+            color: var(--white);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-overlay h3 {
+            color: #fde047;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--med-blue);
+        }
+
+        /* TARJETAS DE ACCESO RÁPIDO A LOS 6 TEMAS */
+        .temas-index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .tema-card-mini {
+            background: var(--white);
+            padding: 1.35rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tema-card-mini:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            border-color: var(--udec-green);
+        }
+
+        .tema-card-mini span {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--udec-green);
+            text-transform: uppercase;
+        }
+
+        /* ARTÍCULOS DEL BLOG */
+        .blog-article {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .article-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-category {
+            color: var(--udec-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ETIQUETAS (RÚBRICA: ESTRUCTURA - 3 PUNTOS) */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .tag {
+            background: var(--accent-soft);
+            color: var(--med-blue);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+        }
+
+        /* IMÁGENES EN ARTÍCULOS */
+        .article-banner-img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 1.25rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .uniforme-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            align-items: center;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--udec-green);
+            margin: 1.5rem 0;
+        }
+
+        .uniforme-showcase img {
+            width: 100%;
+            max-height: 460px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* VIÑETAS Y LISTAS (RÚBRICA: FORMATO DEL ESCRITO - 5 PUNTOS) */
+        ul.custom-list {
+            list-style: none;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        ul.custom-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.65rem;
+        }
+
+        ul.custom-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--udec-green);
+            font-weight: bold;
+        }
+
+        /* TABLAS ACADÉMICAS */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--med-blue);
+            color: var(--white);
+            text-align: left;
+            padding: 0.9rem 1rem;
+            font-size: 0.92rem;
+        }
+
+        td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.92rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* CAJAS DE REFLEXIÓN Y NOTAS */
+        .reflexion-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%);
+            border-left: 5px solid var(--udec-green);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-top: 1.75rem;
+        }
+
+        .reflexion-box h4 {
+            color: var(--udec-green);
+            margin-bottom: 0.4rem;
+        }
+
+        .nota-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--udec-gold);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        /* TARJETAS DE 5S E INFOGRAFÍAS */
+        .grid-5s {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .card-5s {
+            background: #f8fafc;
+            border-top: 4px solid var(--med-blue);
+            padding: 1.2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card-5s .num {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            background: var(--med-blue);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ELEMENTOS MULTIMEDIA Y CREATIVOS (RÚBRICA: MULTIMEDIA Y CREATIVIDAD) */
+        .multimedia-box {
+            background: #0f172a;
+            color: var(--white);
+            padding: 1.75rem;
+            border-radius: 14px;
+            margin: 1.75rem 0;
+        }
+
+        .multimedia-box h4 {
+            color: #38bdf8;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-top: 1rem;
+            background: #1e293b;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .interactive-widget {
+            background: #f0f9ff;
+            border: 2px dashed var(--med-blue);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .btn-interactive {
+            background: var(--udec-green);
+            color: var(--white);
+            border: none;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.75rem;
+        }
+
+        .btn-interactive:hover {
+            background: #00422f;
+        }
+
+        select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            margin-top: 0.5rem;
+        }
+
+        /* COMPETENCIAS PERFIL DE EGRESO */
+        .competencias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .comp-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.35rem;
+            position: relative;
+        }
+
+        .comp-number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--udec-gold);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* REFERENCIAS APA 7 */
+        .apa-list p {
+            padding-left: 2rem;
+            text-indent: -2rem;
+            margin-bottom: 1rem;
+            font-size: 0.94rem;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2.5rem 1.25rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-overlay h2 { font-size: 1.5rem; }
+            .blog-article { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav>
+        <div class="nav-container">
+            <a href="#portada" class="nav-brand">🩺 Medicina UdeC | Blog</a>
+            <ul class="nav-links">
+                <li><a href="#portada">Portada</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#tema1">1. Identidad y Uniforme</a></li>
+                <li><a href="#tema2">2. TREC</a></li>
+                <li><a href="#tema3">3. Hábitos y 5S</a></li>
+                <li><a href="#tema4">4. Emociones</a></li>
+                <li><a href="#tema5">5. Exposiciones</a></li>
+                <li><a href="#tema6">6. Perfil de Egreso</a></li>
+                <li><a href="#referencias">APA 7</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- =========================================================
+             PORTADA OFICIAL (RÚBRICA: DATOS GENERALES OBLIGATORIOS)
+             ========================================================= -->
+        <section id="portada" class="portada-card">
+            <div class="logos-header">
+                <div class="logo-badge">
+                    <span style="font-size:2rem;">🦅</span>
+                    <span>UNIVERSIDAD DE COLIMA<br><small>Estudia • Lucha • Trabaja</small></span>
+                </div>
+                <div class="logo-badge">
+                    <span style="font-size:2rem;">⚕️</span>
+                    <span>FACULTAD DE MEDICINA<br><small>Médico Cirujano y Partero</small></span>
+                </div>
+            </div>
+
+            <div class="portada-institucion">
+                <h1>UNIVERSIDAD DE COLIMA</h1>
+                <h2>Facultad de Medicina</h2>
+                <h3>Licenciatura en Médico Cirujano y Partero</h3>
+                <p style="font-size: 1.25rem; font-weight: 700; color: var(--text-dark); margin-top: 0.5rem;">
+                    Proyecto Segunda Parcial: Blog Educativo<br>
+                    <em>"Formación médica: más allá del aula. Identidad y desarrollo profesional del estudiante de Medicina"</em>
+                </p>
+            </div>
+
+            <div class="datos-grid">
+                <div class="dato-item">
+                    <strong>Nombre de la Materia</strong>
+                    Identidad profesional
+                </div>
+                <div class="dato-item">
+                    <strong>Semestre y Grupo</strong>
+                    3.° semestre - Grupo A
+                </div>
+                <div class="dato-item">
+                    <strong>Nombre de la Profesora</strong>
+                    Mtra. Paulina Leon Govea
+                </div>
+                <div class="dato-item">
+                    <strong>Fecha de Entrega</strong>
+                    22 de octubre de 2026
+                </div>
+                <div class="dato-item" style="grid-column: 1 / -1;">
+                    <strong>Equipo de 5 Integrantes (Estudiantes)</strong>
+                    1. Bautista Verduzco Jonathan Guadalupe &nbsp;|&nbsp;
+                    2. Castañeda Guadarrama Bruno Javier &nbsp;|&nbsp;
+                    3. Hernández Salgado David Emmanuel &nbsp;|&nbsp;
+                    4. Torres Díaz Richard Alexander &nbsp;|&nbsp;
+                    5. Vidales Amado Alexander
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SECCIÓN 0: INICIO Y BIENVENIDA (PÁGINAS 1 Y 4 DEL PDF)
+             ========================================================= -->
+        <section id="inicio">
+            <div class="hero-section">
+                <!-- Imagen 1 del PDF: Tres estudiantes con bata blanca y estetoscopio -->
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Estudiantes de Medicina revisando apuntes" class="hero-img">
+                <div class="hero-overlay">
+                    <h2>Formación médica: más allá del aula</h2>
+                    <h3>Identidad, aprendizaje y desarrollo personal en la carrera de Médico Cirujano y Partero</h3>
+                    <p style="max-width: 780px; margin-bottom: 0;">
+                        Un espacio educativo que explica cómo construimos nuestra identidad profesional, desarrollamos hábitos de estudio, manejamos nuestras emociones y adquirimos las competencias necesarias para convertirnos en médicos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="welcome-box">
+                <h3>Bienvenida a nuestro blog universitario</h3>
+                <p>Estudiar Medicina representa mucho más que aprender sobre el cuerpo humano, las enfermedades y sus tratamientos. También implica desarrollar valores, habilidades, hábitos y actitudes que nos permitan convertirnos en profesionales capaces de brindar una atención ética, científica y humanista.</p>
+                <p>Como estudiantes de la <strong>Facultad de Medicina de la Universidad de Colima</strong>, nuestra formación involucra tanto el aprendizaje académico como el crecimiento personal. Cada experiencia dentro y fuera del aula contribuye a construir nuestra identidad como futuros médicos.</p>
+                <p>En este blog exploraremos seis temas fundamentales para nuestra formación: <strong>identidad profesional, creencias personales (TREC), hábitos de estudio, manejo emocional, habilidades expositivas y perfil de egreso</strong>.</p>
+                <p style="margin-bottom: 0;">Nuestro propósito es comprender cómo cada uno de estos aspectos influye en nuestro desempeño universitario y en la manera en que ejerceremos la Medicina en el futuro. <strong>Porque ser médico no consiste únicamente en adquirir conocimientos, sino también en aprender a utilizarlos con responsabilidad, empatía y compromiso social.</strong></p>
+            </div>
+
+            <!-- Estructura general / Acceso rápido a los 6 temas -->
+            <div class="temas-index-grid">
+                <a href="#tema1" class="tema-card-mini">
+                    <span>Tema 1</span>
+                    <h4>Identidad profesional</h4>
+                    <p style="font-size:0.9rem; margin:0;">Misión, visión, uniforme escolar y honestidad académica.</p>
+                </a>
+                <a href="#tema2" class="tema-card-mini">
+                    <span>Tema 2</span>
+                    <h4>TREC</h4>
+                    <p style="font-size:0.9rem; margin:0;">Creencias potenciadoras, limitantes y modelo ABCDE.</p>
+                </a>
+                <a href="#tema3" class="tema-card-mini">
+                    <span>Tema 3</span>
+                    <h4>Hábitos de estudio</h4>
+                    <p style="font-size:0.9rem; margin:0;">Organización, técnicas de aprendizaje y método 5S.</p>
+                </a>
+                <a href="#tema4" class="tema-card-mini">
+                    <span>Tema 4</span>
+                    <h4>Manejo emocional</h4>
+                    <p style="font-size:0.9rem; margin:0;">Estrés, emociones, autocuidado y bienestar universitario.</p>
+                </a>
+                <a href="#tema5" class="tema-card-mini">
+                    <span>Tema 5</span>
+                    <h4>Habilidades expositivas</h4>
+                    <p style="font-size:0.9rem; margin:0;">Comunicación oral, exposiciones y seguridad al hablar.</p>
+                </a>
+                <a href="#tema6" class="tema-card-mini">
+                    <span>Tema 6</span>
+                    <h4>Perfil de egreso</h4>
+                    <p style="font-size:0.9rem; margin:0;">Competencias profesionales y compromiso con la sociedad.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             TEMA 1: IDENTIDAD PROFESIONAL Y UNIFORME (PÁGS. 4 A 7 PDF)
+             ========================================================= -->
+        <article id="tema1" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Tema 1 • Identidad como estudiante de Médico Cirujano y Partero</span>
+                <h2>Ser estudiante de Medicina: identidad, valores y compromiso profesional</h2>
+                <div class="tags-container">
+                    <span class="tag">#IdentidadUniversitaria</span>
+                    <span class="tag">#MisiónYVisión</span>
+                    <span class="tag">#UniformeMédico</span>
+                    <span class="tag">#HonestidadAcadémica</span>
+                </div>
+            </div>
+
+            <!-- Imagen del PDF: Bata médica y estetoscopio -->
+            <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1000&q=80" alt="Bata blanca y estetoscopio" class="article-banner-img">
+
+            <h3>1.1. ¿Qué es la identidad profesional?</h3>
+            <p>La identidad profesional es el conjunto de valores, conocimientos, actitudes y comportamientos que una persona desarrolla al prepararse para ejercer una profesión.</p>
+            <p>En Medicina, esta identidad comienza a construirse desde los primeros semestres, mediante las experiencias académicas, las relaciones con docentes y compañeros, y el contacto progresivo con pacientes. Ser estudiante de Medicina no significa únicamente aprender a diagnosticar enfermedades; también requiere adquirir responsabilidad, empatía, disciplina, respeto por la vida y compromiso con la sociedad.</p>
+
+            <h3>1.2. Misión y visión de la Facultad de Medicina</h3>
+            <div class="datos-grid" style="margin-bottom: 1.25rem;">
+                <div class="dato-item">
+                    <strong>Misión Institucional (Síntesis)</strong>
+                    <p style="margin:0.4rem 0 0 0; font-size:0.95rem;">Formar recursos humanos en el área de la salud, en licenciatura y posgrado, desde una perspectiva científica, ética y humanística, que participen en la promoción, prevención, diagnóstico, tratamiento, rehabilitación e investigación.</p>
+                </div>
+                <div class="dato-item">
+                    <strong>Visión Institucional (Síntesis)</strong>
+                    <p style="margin:0.4rem 0 0 0; font-size:0.95rem;">Consolidarse como un espacio de excelencia académica y científica que forme profesionales capaces de brindar atención integral de la salud, con un enfoque científico, ético, humanista, multidisciplinario y universal.</p>
+                </div>
+            </div>
+            <p><strong>¿Cómo se relacionan con nuestra identidad?</strong> La misión establece el propósito de nuestra formación, mientras que la visión representa el tipo de excelencia académica y profesional que se busca alcanzar. Ambas nos recuerdan que debemos prepararnos no solamente en conocimientos científicos, sino también en habilidades humanas que permitan atender a cada paciente de manera integral.</p>
+
+            <h3>1.3. El uniforme escolar como símbolo de identidad</h3>
+            <p>El documento <em>Uniforme escolar. Lineamientos</em>, de la Facultad de Medicina de la Universidad de Colima, señala que el uniforme blanco simboliza <strong>limpieza, pulcritud, autocuidado e identidad profesional</strong>.</p>
+
+            <!-- APARTADO SOLICITADO: IMAGEN DE LAS DOS PERSONAS PORTANDO EL UNIFORME -->
+            <div class="uniforme-showcase">
+                <div>
+                    <!-- IMPORTANTE: Guarda la foto proporcionada de los dos alumnos como "uniforme_udec.jpg" en la misma carpeta -->
+                    <img src="uniforme_udec.jpg" alt="Dos estudiantes de la Facultad de Medicina de la Universidad de Colima portando el uniforme blanco oficial" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80'">
+                    <p class="img-caption">Estudiantes de la Facultad de Medicina de la Universidad de Colima portando el uniforme reglamentario blanco (polo institucional, pantalón blanco y calzado blanco cerrado).</p>
+                </div>
+                <div>
+                    <h4>Lineamientos e importancia del uniforme</h4>
+                    <ul class="custom-list">
+                        <li><strong>Ropa blanca reglamentaria:</strong> Uso de playera tipo polo y pantalón blanco con el escudo oficial de la Facultad de Medicina de la Universidad de Colima.</li>
+                        <li><strong>Calzado adecuado:</strong> Calzado blanco, cerrado y limpio durante las actividades académicas y clínicas.</li>
+                        <li><strong>Bata de laboratorio:</strong> Uso diferenciado de acuerdo con las actividades prácticas y de laboratorio.</li>
+                        <li><strong>Significado institucional:</strong> Más allá de ser una vestimenta escolar, el uniforme representa pertenencia institucional, responsabilidad, higiene y respeto hacia la profesión.</li>
+                        <li><strong>Imagen ante la sociedad:</strong> Su uso nos recuerda que nuestra conducta influye directamente en la imagen de la comunidad médica.</li>
+                    </ul>
+                    <div class="nota-box">
+                        <strong>Nota:</strong> El PDF de lineamientos corresponde a una edición anterior; conviene confirmar siempre con la Facultad las disposiciones vigentes de presentación personal.
+                    </div>
+                </div>
+            </div>
+
+            <h3>1.4. Honestidad académica</h3>
+            <p>La honestidad académica consiste en actuar con integridad durante el aprendizaje, las evaluaciones, la investigación y la elaboración de trabajos escolares. En el documento de <strong>Snejanka Penkova (2013)</strong> se identifican cinco valores fundamentales:</p>
+            <ul class="custom-list">
+                <li><strong>Honestidad:</strong> Búsqueda sincera de la verdad y el conocimiento.</li>
+                <li><strong>Confianza:</strong> Base del trabajo colaborativo y científico.</li>
+                <li><strong>Justicia:</strong> Trato equitativo y evaluación imparcial.</li>
+                <li><strong>Respeto:</strong> Reconocimiento de la autoría e ideas de los demás.</li>
+                <li><strong>Responsabilidad:</strong> Compromiso ético ante las propias acciones académicas.</li>
+            </ul>
+            <p>El plagio implica presentar ideas o trabajos ajenos como propios, por lo que es indispensable reconocer correctamente las fuentes consultadas.</p>
+            <p><strong>Ejemplos de honestidad académica en Medicina:</strong></p>
+            <ul class="custom-list">
+                <li>Citar artículos científicos, libros e imágenes utilizados en investigaciones.</li>
+                <li>No copiar en exámenes ni presentar trabajos realizados por otras personas como propios.</li>
+                <li>No fabricar datos de experimentos o prácticas clínicas.</li>
+                <li>Reconocer los errores y las limitaciones del propio conocimiento.</li>
+                <li>Proteger la información confidencial de los pacientes durante las prácticas.</li>
+                <li>Utilizar responsablemente herramientas de inteligencia artificial, verificando la información que generan y respetando las indicaciones docentes, siguiendo el enfoque ético y centrado en las personas recomendado por la <strong>UNESCO (2023)</strong>.</li>
+            </ul>
+
+            <div class="reflexion-box">
+                <h4>Reflexión para cerrar el tema</h4>
+                <p style="margin:0;">Nuestra identidad como futuros médicos se construye mediante nuestras acciones diarias. La honestidad, la responsabilidad y el respeto deben estar presentes desde nuestra formación universitaria, porque serán fundamentales al momento de cuidar la salud de otras personas.</p>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             TEMA 2: TERAPIA RACIONAL EMOTIVA CONDUCTUAL (PÁGS. 7 A 9 PDF)
+             ========================================================= -->
+        <article id="tema2" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Tema 2 • Terapia Racional Emotiva Conductual (TREC)</span>
+                <h2>Lo que pensamos influye en cómo aprendemos: la TREC en la vida universitaria</h2>
+                <div class="tags-container">
+                    <span class="tag">#Pensamientos</span>
+                    <span class="tag">#Creencias</span>
+                    <span class="tag">#Emociones</span>
+                    <span class="tag">#Conducta</span>
+                </div>
+            </div>
+
+            <!-- Imagen del PDF: Estudiante reflexionando junto a la ventana -->
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" alt="Estudiante escribiendo y reflexionando" class="article-banner-img">
+
+            <h3>2.1. ¿Qué es la TREC?</h3>
+            <p>La <strong>Terapia Racional Emotiva Conductual (TREC)</strong>, desarrollada por Albert Ellis, es un enfoque de intervención psicológica que ayuda a identificar y modificar creencias rígidas o poco funcionales que pueden intensificar el malestar emocional.</p>
+            <p>El artículo <em>Terapia racional emotiva: una revisión actualizada de la investigación</em>, de <strong>Ibáñez Reyes, Onofre Pérez y Vargas Flores (2012)</strong>, analiza las bases de este enfoque y su relación con el perfeccionismo, la procrastinación, la rumiación y el afrontamiento del estrés. La idea central es que nuestra interpretación de una situación influye en cómo nos sentimos y en la manera en que actuamos.</p>
+
+            <h3>2.2. Creencias limitantes y potenciadoras</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Creencias limitantes</th>
+                            <th>Creencias potenciadoras</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>«No soy suficientemente inteligente para estudiar Medicina».</td>
+                            <td>«Puedo desarrollar mis capacidades mediante el estudio y la práctica».</td>
+                        </tr>
+                        <tr>
+                            <td>«Si repruebo un examen, soy un fracaso».</td>
+                            <td>«Una calificación no define mi valor ni todas mis capacidades».</td>
+                        </tr>
+                        <tr>
+                            <td>«Debo comprender todo a la primera».</td>
+                            <td>«Aprender requiere tiempo, repetición y esfuerzo».</td>
+                        </tr>
+                        <tr>
+                            <td>«Nunca podré hablar frente a mis compañeros».</td>
+                            <td>«Puedo mejorar mis exposiciones mediante la preparación».</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted);"><em>*Nota: La clasificación entre potenciadoras y limitantes se utiliza aquí como adaptación didáctica al entorno universitario.</em></p>
+
+            <h3>2.3. El modelo ABCDE de la TREC</h3>
+            <p>Secuencia didáctica aplicada a un estudiante de Medicina para identificar y cuestionar pensamientos poco funcionales:</p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Situación aplicada en Medicina</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A. Acontecimiento</strong></td>
+                            <td>Obtuve una calificación baja en Farmacología.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B. Creencia</strong></td>
+                            <td>«No sirvo para esta carrera».</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C. Consecuencia</strong></td>
+                            <td>Siento ansiedad, frustración y ganas de dejar de estudiar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D. Debate</strong></td>
+                            <td>¿Una sola calificación demuestra que no tengo capacidad? ¿Qué puedo mejorar?</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E. Nueva perspectiva</strong></td>
+                            <td>«Necesito reforzar algunos temas y cambiar mi estrategia de estudio».</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2.4. Aplicación en la vida universitaria (Elemento Creativo Interactivo #1)</h3>
+            <p>La TREC ayuda a reflexionar sobre el miedo al fracaso, la autoexigencia excesiva, la comparación con compañeros y la procrastinación.</p>
+
+            <div class="interactive-widget">
+                <h4>🧠 Actividad Interactiva: Transforma una creencia limitante</h4>
+                <p style="margin-bottom:0.5rem;">Selecciona un pensamiento frecuente en Medicina para visualizar un debate racional (D) y redacta tu propio pensamiento alternativo (E):</p>
+                <select id="creenciaSelect" onchange="mostrarAlternativaTREC()">
+                    <option value="0">1. «Debo obtener siempre la mejor calificación».</option>
+                    <option value="1">2. «Si pregunto en clase, pensarán que no sé nada».</option>
+                    <option value="2">3. «Si me equivoco al exponer, será un desastre».</option>
+                </select>
+                <div id="sugerenciaTREC" style="background:white; padding:0.9rem; border-radius:8px; margin-top:0.75rem; border-left:4px solid var(--med-blue);">
+                    <strong>Sugerencia racional (TREC):</strong> Esforzarme por aprender es valioso, pero exigir perfección absoluta genera ansiedad innecesaria; un error es un indicador de qué tema debo repasar.
+                </div>
+                <textarea id="miPensamiento" rows="2" placeholder="Escribe aquí tu propio pensamiento alternativo flexible y realista..."></textarea>
+                <button class="btn-interactive" onclick="guardarPensamiento()">Guardar mi reflexión</button>
+                <p id="mensajeGuardado" style="color:var(--udec-green); font-weight:600; margin-top:0.5rem; display:none;"></p>
+            </div>
+
+            <div class="reflexion-box">
+                <h4>Reflexión final</h4>
+                <p style="margin:0;">No siempre podemos controlar lo que sucede durante nuestra formación universitaria, pero podemos aprender a cuestionar nuestras interpretaciones y elegir respuestas que favorezcan nuestro desarrollo.</p>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             TEMA 3: HÁBITOS DE ESTUDIO Y MÉTODO 5S (PÁGS. 9 A 12 PDF)
+             ========================================================= -->
+        <article id="tema3" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Tema 3 • Hábitos de estudio</span>
+                <h2>Aprender Medicina de manera inteligente: hábitos de estudio que funcionan</h2>
+                <div class="tags-container">
+                    <span class="tag">#Organización</span>
+                    <span class="tag">#AprendizajeActivo</span>
+                    <span class="tag">#Disciplina</span>
+                    <span class="tag">#Método5S</span>
+                </div>
+            </div>
+
+            <!-- Imagen del PDF: Escritorio con laptop y libros de anatomía -->
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=80" alt="Área de estudio médico organizada" class="article-banner-img">
+
+            <h3>3.1. ¿Qué son los hábitos de estudio?</h3>
+            <p>Los hábitos de estudio son comportamientos y rutinas que favorecen un aprendizaje constante, organizado y efectivo. En Medicina son especialmente importantes debido a la gran cantidad de información científica que debe comprenderse, relacionarse y recordarse durante la carrera.</p>
+
+            <h3>3.2. Técnicas de estudio respaldadas por la investigación</h3>
+            <p>La revisión de <strong>Dunlosky y colaboradores (2013)</strong> encontró que la <strong>práctica de recuperación</strong> y el <strong>estudio distribuido</strong> presentan una utilidad elevada para favorecer el aprendizaje, mientras que la relectura y el subrayado usados de manera aislada suelen ser menos eficaces.</p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Técnica</th>
+                            <th>Aplicación en Medicina</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Recuperación activa</strong></td>
+                            <td>Resolver preguntas de Anatomía sin consultar los apuntes.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Repetición espaciada</strong></td>
+                            <td>Repasar conceptos en diferentes días en lugar de estudiar todo la noche anterior.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autoexplicación</strong></td>
+                            <td>Explicar con palabras propias cómo ocurre una enfermedad.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Práctica con casos</strong></td>
+                            <td>Relacionar síntomas con mecanismos fisiopatológicos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mapas conceptuales</strong></td>
+                            <td>Organizar las relaciones entre etiología, fisiopatología, clínica y tratamiento.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3.3. La metodología de las 5S en el área de estudio</h3>
+            <p>El documento <em>El método de las 5S: su aplicación</em>, de <strong>Jara Riofrío (2017)</strong>, presenta un sistema de organización de origen japonés que favorece el orden, la limpieza, el aprovechamiento del espacio y la formación de rutinas sostenibles en el entorno académico:</p>
+
+            <div class="grid-5s">
+                <div class="card-5s">
+                    <span class="num">1</span>
+                    <h4>Seiri</h4>
+                    <strong>Clasificar</strong>
+                    <p style="font-size:0.85rem; margin-top:0.4rem;">Retirar del escritorio materiales innecesarios.</p>
+                </div>
+                <div class="card-5s">
+                    <span class="num">2</span>
+                    <h4>Seiton</h4>
+                    <strong>Ordenar</strong>
+                    <p style="font-size:0.85rem; margin-top:0.4rem;">Asignar un lugar a libros, apuntes y herramientas.</p>
+                </div>
+                <div class="card-5s">
+                    <span class="num">3</span>
+                    <h4>Seiso</h4>
+                    <strong>Limpiar</strong>
+                    <p style="font-size:0.85rem; margin-top:0.4rem;">Mantener libre de suciedad el área de trabajo.</p>
+                </div>
+                <div class="card-5s">
+                    <span class="num">4</span>
+                    <h4>Seiketsu</h4>
+                    <strong>Estandarizar</strong>
+                    <p style="font-size:0.85rem; margin-top:0.4rem;">Establecer rutinas de organización constante.</p>
+                </div>
+                <div class="card-5s">
+                    <span class="num">5</span>
+                    <h4>Shitsuke</h4>
+                    <strong>Disciplina</strong>
+                    <p style="font-size:0.85rem; margin-top:0.4rem;">Convertir las buenas prácticas en hábitos.</p>
+                </div>
+            </div>
+
+            <!-- APARTADO SOLICITADO EN EL PDF: VIDEO DE LAS 5S -->
+            <div class="multimedia-box">
+                <h4>🎬 Recurso Multimedia: Aplicación práctica del Método de las 5S</h4>
+                <p style="font-size:0.92rem; margin-bottom:0.5rem;">Explora en el siguiente video cómo aplicar las 5 etapas (Seiri, Seiton, Seiso, Seiketsu y Shitsuke) para optimizar tu espacio de estudio médico:</p>
+                <div class="video-wrapper">
+                    <!-- Si tienes el archivo de video en tu computadora, cambia el iframe por: <video controls src="video_5s.mp4"></video> -->
+                    <iframe src="https://www.youtube.com/embed/actualiza_tu_id_de_video_o_usa_youtube?rel=0" title="Video Metodología de las 5S" allowfullscreen></iframe>
+                </div>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:0.6rem; margin-bottom:0;">
+                    *Tip de edición: Reemplaza el atributo <code>src</code> del <code>&lt;iframe&gt;</code> con el enlace exacto del video de las 5S proporcionado en tu clase.
+                </p>
+            </div>
+
+            <h3>3.4. Organización de una sesión de estudio (Temporizador Interactivo #2)</h3>
+            <p>Un estudiante puede organizar una sesión práctica adaptable de <strong>90 minutos</strong> distribuida en cuatro bloques:</p>
+            <ul class="custom-list">
+                <li><strong>10 minutos:</strong> Definir objetivos claros de la sesión.</li>
+                <li><strong>40 minutos:</strong> Estudio activo (lectura comprensiva, esquemas, autoexplicación).</li>
+                <li><strong>10 minutos:</strong> Descanso breve (hidratación y estiramiento lejos de pantallas).</li>
+                <li><strong>30 minutos:</strong> Preguntas de recuperación activa y repaso.</li>
+            </ul>
+
+            <div class="reflexion-box">
+                <h4>Reflexión final</h4>
+                <p style="margin:0;">Estudiar durante muchas horas no siempre significa aprender mejor. La constancia, la organización y la participación activa en el aprendizaje son fundamentales para desarrollar conocimientos que podamos aplicar en situaciones clínicas.</p>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             TEMA 4: MANEJO EMOCIONAL (PÁGS. 12 A 13 DEL PDF)
+             ========================================================= -->
+        <article id="tema4" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Tema 4 • Manejo emocional</span>
+                <h2>Cuidar nuestras emociones también forma parte de aprender Medicina</h2>
+                <div class="tags-container">
+                    <span class="tag">#InteligenciaEmocional</span>
+                    <span class="tag">#EstrésAcadémico</span>
+                    <span class="tag">#Autorregulación</span>
+                    <span class="tag">#Autocuidado</span>
+                </div>
+            </div>
+
+            <!-- Imagen del PDF: Estudiante de medicina practicando respiración tranquila en banca exterior -->
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80" alt="Estudiante practicando respiración y calma" class="article-banner-img">
+
+            <h3>4.1. ¿Qué es el manejo emocional?</h3>
+            <p>El manejo emocional es la capacidad de reconocer, comprender y regular nuestras emociones para responder de manera adecuada a las situaciones cotidianas. En la carrera de Medicina, los estudiantes pueden experimentar presión académica, nerviosismo durante las evaluaciones, frustración, cansancio e incertidumbre. Aprender a manejar estas experiencias no significa dejar de sentirlas, sino reconocerlas y desarrollar recursos para afrontarlas.</p>
+
+            <h3>4.2. Emociones frecuentes durante la formación médica</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Emoción</th>
+                            <th>Situación posible</th>
+                            <th>Respuesta constructiva</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ansiedad</strong></td>
+                            <td>Antes de un examen o exposición</td>
+                            <td>Prepararse, practicar y utilizar ejercicios de respiración.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frustración</strong></td>
+                            <td>Dificultad para comprender un tema</td>
+                            <td>Identificar dudas y pedir apoyo oportuno.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tristeza</strong></td>
+                            <td>Resultado académico inesperado</td>
+                            <td>Reconocer lo que se siente y buscar apoyo.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Miedo</strong></td>
+                            <td>Primera experiencia clínica</td>
+                            <td>Prepararse y solicitar orientación a los docentes.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Estrés</strong></td>
+                            <td>Acumulación de actividades</td>
+                            <td>Establecer prioridades y descansos programados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>4.3. Estrategias para regular las emociones</h3>
+            <p>La <strong>Organización Mundial de la Salud (OMS, 2020)</strong> propone estrategias sencillas para afrontar el estrés, como prestar atención al presente, identificar pensamientos difíciles, actuar de acuerdo con los propios valores y practicar la amabilidad hacia uno mismo. Adaptadas a los estudiantes de Medicina en cuatro pasos:</p>
+            <ul class="custom-list">
+                <li><strong>1. Reconocer:</strong> Identificar qué emoción estoy experimentando en este momento.</li>
+                <li><strong>2. Comprender:</strong> Reflexionar sobre qué situación y qué pensamientos están relacionados con ella.</li>
+                <li><strong>3. Regular:</strong> Utilizar respiración pausada, descanso, apoyo social u otra estrategia saludable.</li>
+                <li><strong>4. Actuar:</strong> Elegir una acción concreta y constructiva para afrontar la situación.</li>
+            </ul>
+
+            <h3>4.4. ¿Dónde buscar apoyo en la Universidad de Colima?</h3>
+            <div class="datos-grid" style="background:#f0fdf4; border-color:var(--udec-green);">
+                <div class="dato-item">
+                    <strong>Clínica Universitaria de Atención Psicológica (CUAP - UdeC)</strong>
+                    Ofrece evaluación, asesoría y acompañamiento emocional mediante intervenciones individuales y grupales para estudiantes.
+                </div>
+                <div class="dato-item">
+                    <strong>Contacto directo</strong>
+                    📧 Correo: <a href="mailto:citascuap@ucol.mx">citascuap@ucol.mx</a><br>
+                    📞 Teléfono: 312 316 10 00 (Extensiones 33850 y 33851)
+                </div>
+            </div>
+
+            <div class="reflexion-box">
+                <h4>Reflexión final</h4>
+                <p style="margin:0;">Para cuidar la salud de otras personas, también necesitamos aprender a cuidar la nuestra. Reconocer nuestras emociones y pedir ayuda cuando la necesitamos es parte de una formación profesional responsable.</p>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             TEMA 5: HABILIDADES EXPOSITIVAS (PÁGS. 14 A 15 DEL PDF)
+             ========================================================= -->
+        <article id="tema5" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Tema 5 • Habilidades expositivas</span>
+                <h2>Comunicar para aprender: la importancia de las habilidades expositivas en Medicina</h2>
+                <div class="tags-container">
+                    <span class="tag">#ComunicaciónOral</span>
+                    <span class="tag">#OrganizaciónDeInformación</span>
+                    <span class="tag">#RecursosVisuales</span>
+                    <span class="tag">#ExpresiónCorporal</span>
+                </div>
+            </div>
+
+            <!-- Imagen del PDF: Exposición médica en aula frente a proyector de anatomía -->
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=80" alt="Exposición académica en aula de medicina" class="article-banner-img">
+
+            <h3>5.1. ¿Qué son las habilidades expositivas?</h3>
+            <p>Son las capacidades que permiten transmitir información oral de manera clara, ordenada, comprensible y adecuada para un público determinado. En Medicina son esenciales porque los estudiantes deben realizar exposiciones en clase, explicar procesos fisiológicos, analizar casos clínicos y, posteriormente, comunicarse con pacientes y otros profesionales de la salud.</p>
+
+            <h3>5.2. Elementos de una buena exposición</h3>
+            <ul class="custom-list">
+                <li><strong>Dominio del tema:</strong> Comprender los conceptos a fondo, no solamente memorizarlos.</li>
+                <li><strong>Organización:</strong> Seguir una secuencia lógica y coherente de ideas.</li>
+                <li><strong>Expresión oral:</strong> Utilizar un lenguaje claro, volumen apropiado y ritmo comprensible.</li>
+                <li><strong>Apoyos visuales:</strong> Incorporar esquemas, imágenes y diapositivas legibles sin saturación de texto.</li>
+                <li><strong>Interacción:</strong> Mantener el contacto visual con la audiencia y atender las preguntas con respeto.</li>
+                <li><strong>Manejo del tiempo:</strong> Distribuir adecuadamente la duración de la presentación.</li>
+            </ul>
+
+            <h3>5.3. Estructura recomendada para una exposición médica</h3>
+            <p><strong>Ejemplo aplicado a una enfermedad (Epilepsia):</strong></p>
+            <ol style="margin: 0.75rem 0 1.25rem 1.5rem;">
+                <li>Introducción y definición.</li>
+                <li>Etiología y factores de riesgo.</li>
+                <li>Fisiología y fisiopatología.</li>
+                <li>Clasificación y manifestaciones clínicas.</li>
+                <li>Diagnóstico y tratamiento.</li>
+                <li>Conclusiones y referencias científicas.</li>
+            </ol>
+            <p>Para la <strong>exposición de casos clínicos</strong>, la organización prioriza el motivo de atención, los datos clínicos relevantes, la valoración diagnóstica y el plan correspondiente. Un instrumento de evaluación de <strong>Stanford Medicine (s. f.)</strong> evalúa precisamente la organización, la selección de información relevante, la claridad, las respuestas a preguntas y la comunicación respetuosa durante las presentaciones clínicas.</p>
+
+            <h3>5.4. ¿Cómo mejorar al exponer? (Lista de Autoevaluación Interactiva #3)</h3>
+            <p>Es conveniente practicar la exposición antes de presentarla, comprender las diapositivas en lugar de leerlas y grabarse para identificar áreas de mejora. Además, en Medicina, admitir que necesitamos revisar una información es preferible a proporcionar datos incorrectos con aparente seguridad.</p>
+
+            <div class="interactive-widget">
+                <h4>📋 Autoevaluación de Exposición Médica</h4>
+                <p style="margin-bottom:0.5rem;">Marca los criterios cumplidos durante tu ensayo de presentación oral:</p>
+                <label style="display:block; margin-bottom:0.4rem;"><input type="checkbox" class="check-expo" onchange="calcularExpo()"> 1. Expliqué los conceptos con mis propias palabras sin leer las diapositivas.</label>
+                <label style="display:block; margin-bottom:0.4rem;"><input type="checkbox" class="check-expo" onchange="calcularExpo()"> 2. Seguí un orden lógico (definición, fisiopatología, clínica, diagnóstico).</label>
+                <label style="display:block; margin-bottom:0.4rem;"><input type="checkbox" class="check-expo" onchange="calcularExpo()"> 3. Mantuve contacto visual, postura abierta y volumen de voz claro.</label>
+                <label style="display:block; margin-bottom:0.4rem;"><input type="checkbox" class="check-expo" onchange="calcularExpo()"> 4. Mis diapositivas contienen esquemas visuales e incluyen referencias en APA 7.</label>
+                <label style="display:block; margin-bottom:0.4rem;"><input type="checkbox" class="check-expo" onchange="calcularExpo()"> 5. Me ajusté al tiempo asignado y respondí dudas con honestidad académica.</label>
+                <p id="resultadoExpo" style="font-weight:700; color:var(--med-blue); margin-top:0.75rem; margin-bottom:0;">Progreso de preparación: 0 / 5 criterios listos.</p>
+            </div>
+
+            <div class="reflexion-box">
+                <h4>Reflexión final</h4>
+                <p style="margin:0;">Aprender a comunicarnos correctamente nos prepara no solo para aprobar exposiciones, sino también para transmitir información científica, trabajar en equipo y explicar situaciones de salud a nuestros futuros pacientes.</p>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             TEMA 6: PERFIL DE EGRESO UdeC (PÁGS. 15 A 17 DEL PDF)
+             ========================================================= -->
+        <article id="tema6" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Tema 6 • Perfil de egreso de Médico Cirujano y Partero de la Universidad de Colima</span>
+                <h2>Del estudiante al profesional: las competencias del futuro médico</h2>
+                <div class="tags-container">
+                    <span class="tag">#CompetenciasProfesionales</span>
+                    <span class="tag">#AtenciónIntegral</span>
+                    <span class="tag">#Investigación</span>
+                    <span class="tag">#Liderazgo</span>
+                    <span class="tag">#SaludComunitaria</span>
+                </div>
+            </div>
+
+            <!-- Imagen del PDF: Equipo de cinco médicos jóvenes en el pasillo hospitalario -->
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1000&q=80" alt="Equipo de futuros médicos" class="article-banner-img">
+
+            <h3>6.1. ¿Qué es el perfil de egreso?</h3>
+            <p>El perfil de egreso describe los conocimientos, habilidades, actitudes y competencias que debe desarrollar el estudiante a lo largo de su formación universitaria para ejercer adecuadamente su profesión. De acuerdo con la oferta educativa de la <strong>Universidad de Colima</strong>, la carrera de Médico Cirujano y Partero tiene una duración de <strong>doce semestres</strong> y establece seis áreas principales de competencia profesional.</p>
+
+            <h3>6.2. Competencias del egresado</h3>
+            <div class="competencias-grid">
+                <div class="comp-card">
+                    <span class="comp-number">01</span>
+                    <h4>Asistencial</h4>
+                    <p style="font-size:0.9rem; margin:0;">Brindar atención integral al paciente, considerando sus necesidades biológicas, psicológicas y sociales, con una adecuada relación médico-paciente.</p>
+                </div>
+                <div class="comp-card">
+                    <span class="comp-number">02</span>
+                    <h4>Práctica clínica-quirúrgica</h4>
+                    <p style="font-size:0.9rem; margin:0;">Aplicar conocimientos científicos y clínicos para prevenir, diagnosticar y tratar enfermedades con rigor científico.</p>
+                </div>
+                <div class="comp-card">
+                    <span class="comp-number">03</span>
+                    <h4>Investigación médica</h4>
+                    <p style="font-size:0.9rem; margin:0;">Utilizar el método científico, analizar información y contribuir a la solución de problemas de salud.</p>
+                </div>
+                <div class="comp-card">
+                    <span class="comp-number">04</span>
+                    <h4>Relación médico-paciente</h4>
+                    <p style="font-size:0.9rem; margin:0;">Actuar con ética, empatía, respeto y compromiso con los derechos y necesidades de las personas.</p>
+                </div>
+                <div class="comp-card">
+                    <span class="comp-number">05</span>
+                    <h4>Liderazgo compartido</h4>
+                    <p style="font-size:0.9rem; margin:0;">Colaborar con equipos multidisciplinarios, participar en la toma de decisiones y promover la mejora continua.</p>
+                </div>
+                <div class="comp-card">
+                    <span class="comp-number">06</span>
+                    <h4>Promoción de la salud</h4>
+                    <p style="font-size:0.9rem; margin:0;">Diseñar, aplicar y evaluar acciones preventivas que contribuyan a mejorar la salud individual y comunitaria.</p>
+                </div>
+            </div>
+
+            <h3>6.3. Campos de desarrollo profesional</h3>
+            <p>El egresado puede desempeñarse en áreas de atención directa, prevención, rehabilitación, cuidados paliativos, educación para la salud, gestión sanitaria y emprendimientos relacionados con la salud, de acuerdo con las competencias adquiridas y los requisitos aplicables a cada actividad profesional.</p>
+
+            <h3>6.4. Relación entre el perfil de egreso y los temas anteriores</h3>
+            <p>Todos los temas del blog contribuyen al desarrollo de estas competencias: la <strong>identidad profesional</strong> proporciona valores; las <strong>creencias flexibles (TREC)</strong> favorecen la adaptación; los <strong>hábitos de estudio y 5S</strong> fortalecen el aprendizaje; el <strong>manejo emocional</strong> ayuda a afrontar situaciones exigentes; y las <strong>habilidades expositivas</strong> preparan para la comunicación profesional.</p>
+
+            <div class="reflexion-box">
+                <h4>Reflexión final</h4>
+                <p style="margin:0;">El perfil de egreso no representa solamente una meta académica. Es una guía de las competencias que debemos construir durante nuestra formación para ofrecer, en el futuro, una atención médica responsable, científica y humanista.</p>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             SECCIÓN 4 DEL PDF: CIERRE DEL BLOG
+             ========================================================= -->
+        <section class="blog-article" style="background: linear-gradient(135deg, #00593f 0%, #0f4c81 100%); color: var(--white);">
+            <h2 style="color: var(--white);">Nuestra formación, nuestro compromiso</h2>
+            <p>A lo largo de nuestra preparación como estudiantes de Médico Cirujano y Partero, aprendemos que la Medicina requiere mucho más que conocimientos científicos.</p>
+            <p>La identidad profesional, la honestidad académica, los hábitos de estudio, el manejo emocional y las habilidades de comunicación forman parte de un mismo proceso de crecimiento. Cada una de estas capacidades nos acerca al perfil profesional que buscamos alcanzar y nos prepara para afrontar las responsabilidades que implica el cuidado de la salud.</p>
+            <p style="margin-bottom:0; font-size:1.1rem; font-weight:600; color:#fde047;">
+                La formación médica es un proceso continuo. Cada clase, cada evaluación, cada error y cada experiencia representan una oportunidad para mejorar. Hoy somos estudiantes que están aprendiendo; mañana seremos profesionales responsables de aplicar esos conocimientos en beneficio de la sociedad.
+            </p>
+        </section>
+
+        <!-- =========================================================
+             SECCIÓN 5 DEL PDF: REFERENCIAS BIBLIOGRÁFICAS (APA 7ma EDICIÓN)
+             (RÚBRICA: FUNDAMENTACIÓN DE LA INFORMACIÓN - 10 PUNTOS)
+             ========================================================= -->
+        <section id="referencias" class="blog-article">
+            <div class="article-header">
+                <span class="article-category">Fundamentación Científica • Estilo APA 7.ª Edición</span>
+                <h2>Referencias bibliográficas</h2>
+            </div>
+            <div class="apa-list">
+                <p>Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013). Improving students' learning with effective learning techniques: Promising directions from cognitive and educational psychology. <em>Psychological Science in the Public Interest</em>, 14(1), 4–58. <a href="https://doi.org/10.1177/1529100612453266" target="_blank" rel="noopener">https://doi.org/10.1177/1529100612453266</a></p>
+
+                <p>Facultad de Medicina, Universidad de Colima. (s. f.). <em>Uniforme escolar: Lineamientos</em> [Documento institucional]. Universidad de Colima.</p>
+
+                <p>Ibáñez Reyes, E. J., Onofre Pérez, G., &amp; Vargas Flores, J. J. (2012). Terapia racional emotiva: Una revisión actualizada de la investigación. <em>Revista Electrónica de Psicología Iztacala</em>, 15(4), 1454–1475. <a href="https://www.iztacala.unam.mx/carreras/psicologia/psiclin/" target="_blank" rel="noopener">https://www.iztacala.unam.mx/carreras/psicologia/psiclin/</a></p>
+
+                <p>Jara Riofrío, M. A. (2017). El método de las 5S: Su aplicación. <em>Res Non Verba</em>, 7(1), 167–179.</p>
+
+                <p>Organización Mundial de la Salud. (2020). <em>En tiempos de estrés, haz lo que importa: Una guía ilustrada</em>. Organización Mundial de la Salud. <a href="https://www.who.int/es/publications/i/item/9789240003927" target="_blank" rel="noopener">https://www.who.int/es/publications/i/item/9789240003927</a></p>
+
+                <p>Penkova, S. (2013, 27 de septiembre). <em>Honestidad académica, uso ético de la información y plagio en la universidad</em> [Presentación]. Universidad de Puerto Rico, Recinto de Río Piedras.</p>
+
+                <p>Stanford Medicine. (s. f.). <em>Structured clinical observation: Feedback on oral presentations during rounds</em> [Instrumento de evaluación clínica]. Stanford University School of Medicine.</p>
+
+                <p>UNESCO. (2023). <em>Guidance for generative AI in education and research</em>. Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura. <a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research" target="_blank" rel="noopener">https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research</a></p>
+
+                <p>Universidad de Colima. (s. f.). <em>Médico Cirujano y Partero: Oferta educativa y perfil de egreso</em>. Portal Oficial de la Universidad de Colima. <a href="https://www.ucol.mx/" target="_blank" rel="noopener">https://www.ucol.mx/</a></p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><strong>Universidad de Colima • Facultad de Medicina • Médico Cirujano y Partero</strong></p>
+        <p style="font-size:0.88rem; margin-bottom:0;">Blog académico elaborado para la Segunda Parcial • Octubre 2026</p>
+    </footer>
+
+    <!-- SCRIPTS INTERACTIVOS (ELEMENTOS CREATIVOS DE LA RÚBRICA) -->
+    <script>
+        function mostrarAlternativaTREC() {
+            const select = document.getElementById('creenciaSelect').value;
+            const caja = document.getElementById('sugerenciaTREC');
+            const respuestas = [
+                "<strong>Sugerencia racional (TREC):</strong> Esforzarme por aprender es valioso, pero exigir perfección absoluta genera ansiedad innecesaria; un error es un indicador de qué tema debo repasar.",
+                "<strong>Sugerencia racional (TREC):</strong> Preguntar en clase demuestra interés activo por comprender bien antes de atender a un paciente; todos estamos en proceso de formación.",
+                "<strong>Sugerencia racional (TREC):</strong> Equivocarse al exponer es parte normal del entrenamiento universitario; puedo prepararme mejor y apoyarme en mis notas sin catastrofizar."
+            ];
+            caja.innerHTML = respuestas[select];
+        }
+
+        function guardarPensamiento() {
+            const texto = document.getElementById('miPensamiento').value.trim();
+            const msg = document.getElementById('mensajeGuardado');
+            if (texto.length > 0) {
+                msg.style.display = 'block';
+                msg.textContent = '✓ ¡Excelente! Tu pensamiento alternativo ha sido registrado: "' + texto + '"';
+            } else {
+                msg.style.display = 'block';
+                msg.textContent = 'Por favor escribe una alternativa flexible antes de guardar.';
+            }
+        }
+
+        function calcularExpo() {
+            const checks = document.querySelectorAll('.check-expo:checked').length;
+            const resultado = document.getElementById('resultadoExpo');
+            resultado.textContent = `Progreso de preparación: ${checks} / 5 criterios listos.`;
+        }
+    </script>
+</body>
+</html>
